@@ -17,6 +17,15 @@ public class ValueTypeNotMatchException extends Exception {
         this.expectedClass = expectedClass;
     }
 
+    public ValueTypeNotMatchException(Class gotClass) {
+        super(
+                String.format(
+                        "Default value type mismatch, got %s expect unknown",
+                        gotClass.toString())
+        );
+        this.gotClass = gotClass;
+    }
+
     public Class getGotClass() {
         return gotClass;
     }
