@@ -3,28 +3,42 @@ package com.troublor.config;
 import java.util.Hashtable;
 import java.util.Map;
 
-public class Config {
-    private static Map<Object, Object> configTable = new Hashtable<>();
+/**
+ * Configuration class that contains many key-value configurations
+ *
+ * @param <K> type of key
+ * @param <V> type of value
+ */
+public class Config<K, V> {
+    private Map<K, V> configTable = new Hashtable<>();
 
     /**
-     * add configuration to config table
+     * Add configuration to config table
      * config form is key-value
      *
-     * @param key key of one configuration
+     * @param key   key of one configuration
      * @param value value of the configuration
-     * @param <K> Class type of key
-     * @param <V> Class type of value
      * @return boolean whether the key exists which means whether the addition is a success
      */
-    public <K, V> boolean add(K key, V value) {
-        if (Config.configTable.containsKey(key)) {
+    public boolean add(K key, V value) {
+        if (configTable.containsKey(key)) {
             return false;
         }
-        Config.configTable.put(key, value);
+        configTable.put(key, value);
         return true;
     }
 
-    public <K, V> V get(K key) {
-
+    /**
+     * Get configuration
+     *
+     * @param key the key of one configuration
+     * @return the value of one configuration
+     * @throws ConfigNotExistException thrown when the key is not found in all configurations
+     */
+    public V get(K key) throws ConfigNotExistException {
+        if (!configTable.containsKey(key)) {
+            throw new ConfigNotExistException(key);
+        }
+        return configTable.get(key);
     }
 }
