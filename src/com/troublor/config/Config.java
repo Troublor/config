@@ -10,7 +10,7 @@ import java.util.Map;
  * @param <V> type of value
  */
 public class Config<K, V> {
-    private Map<K, V> configTable = new Hashtable<>();
+    protected Map<K, V> configTable = new Hashtable<>();
 
     /**
      * Add configuration to config table
