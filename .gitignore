@@ -5,7 +5,7 @@
 # IntelliJ project files
 .idea
 *.iml
-out
+out/production
 gen### Java template
 # Compiled class file
 *.class
@@ -20,7 +20,7 @@ gen### Java template
 .mtj.tmp/
 
 # Package Files #
-*.jar
+#*.jar
 *.war
 *.nar
 *.ear
