@@ -33,3 +33,7 @@ public class Test {
     }
 }
 ```
+
+### Package
+
+Jar package is released in out/artifacts/config_jar
